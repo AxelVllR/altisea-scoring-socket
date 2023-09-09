@@ -32,6 +32,12 @@ io.on('connection', (socket) => {
     io.emit('wod', data);
   });
 
+  socket.on('new_log', () => {
+    console.log('LOG RECU');
+    // Envoyez le message à tous les clients connectés
+    io.emit('new_log');
+  });
+
   socket.on('disconnect', () => {
     console.log('Un client s\'est déconnecté');
   });
